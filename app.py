@@ -7,7 +7,7 @@ app = Flask(__name__)
 facetracker = tf.keras.models.load_model('facetracker.h5')
 
 def generate_frames():
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(0, cv2.CAP_V4L)
     while cap.isOpened():
         success, frame = cap.read()
         if not success:
